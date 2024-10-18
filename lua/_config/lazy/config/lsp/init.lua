@@ -69,6 +69,15 @@ return {
 						--         end,
 						--     })
 						-- end
+
+						if client.name == "gopls" and not client.server_capabilities.semanticTokensProvider then
+							local semantic = client.config.capabilities.textDocument.semanticTokens
+							client.server_capabilities.semanticTokensProvider = {
+								full = true,
+								legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+								range = true,
+							}
+						end
 					end
 				end,
 			})
@@ -114,7 +123,22 @@ return {
 					},
 				},
 			})
-			require("lspconfig").gopls.setup({})
+			require("lspconfig").gopls.setup({
+				settings = {
+					gopls = {
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						semanticTokens = true,
+					},
+				},
+			})
 			require("lspconfig").clangd.setup({
 				cmd = {
 					"clangd",

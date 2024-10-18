@@ -8,8 +8,7 @@ end, { desc = "theme picker" })
 
 map_add({ "n", "t" }, "<A-o>", function()
 	require("nvchad.term").toggle({
-		size = 0.8,
-		float_opts = { width = vim.o.columns - 10, height = vim.o.lines - 5 },
+		float_opts = {},
 		pos = "float",
 		id = "floatTerm",
 	})

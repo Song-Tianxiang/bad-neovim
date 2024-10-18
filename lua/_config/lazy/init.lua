@@ -61,7 +61,8 @@ require("lazy").setup({
 		},
 	},
 	rocks = {
-		enabled = true,
-		root = require("_config.rocks").rocks_root,
+		hererocks = false,
+		enabled = false,
+		-- root = require("_config.rocks").rocks_root,
 	},
 })

@@ -14,6 +14,8 @@ return {
 		cmd = "Telescope",
 		keys = {
 			{ "<Leader>ff", "<CMD>Telescope find_files<CR>", desc = "Telescope find files" },
+			{ "<Leader>fo", "<CMD>Telescope oldfiles<CR>", desc = "Telescope oldfiles" },
+			{ "<Leader>fi", "<CMD>Telescope<CR>", desc = "Telescope" },
 		},
 		config = function()
 			require("telescope").setup({
@@ -42,6 +44,7 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-frecency.nvim",
+		enalbed = false,
 		cmd = "Telescope frecency",
 		keys = {
 			{ "<Leader>fo", "<CMD>Telescope frecency<CR>", desc = "Telescope frecency" },
